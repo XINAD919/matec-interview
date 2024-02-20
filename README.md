@@ -10,6 +10,13 @@
 ```sh
 yarn install
 ```
+crear un archivo .env o .env.local y poner las variables de entrorno de Auth0, Vercel/postgres, y unsplash
+
+```sh
+yarn seed
+```
+
+este comando ejecuta el archivo seed.js, el cual crea las tablas e inserta los datos del archivo placeholde-data.js
 
 ## Usage
 
