@@ -21,6 +21,15 @@
       "@components/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/hooks/useFormData.js",
+    "app/components/EventForm.jsx",
+    "app/api/events/index.js",
+    "app/api/event/route.ts"
+  ],
   "exclude": ["node_modules"]
 }

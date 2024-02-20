@@ -1,6 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
 * {
   margin: 0;
   padding: 0;
@@ -16,7 +18,7 @@ body {
   user-select: none;
   scroll-behavior: smooth;
   background-color: #FFFFFF;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1,
@@ -32,6 +34,7 @@ a {
     --background-end-rgb: 0, 0, 0;
   }
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 8px;
@@ -41,5 +44,3 @@ a {
   background: #9ca3af;
   border-radius: 50px;
 }
-
-/*# sourceMappingURL=globals.css.map */

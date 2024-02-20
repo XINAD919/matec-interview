@@ -1,8 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header";
+import { UserProvider } from "@auth0/nextjs-auth0/client";
+import { Toaster } from "react-hot-toast";
 
-const inter = Inter({ subsets: ["latin"] });
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -14,9 +21,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const date = new Date().getFullYear();
+
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang='es'>
+      <UserProvider>
+        <body className={`${roboto.className} bg-slate-950`}>
+          <Header />
+          <Toaster position='bottom-center' reverseOrder={false} />
+          {children}
+          <Footer />
+        </body>
+      </UserProvider>
     </html>
   );
 }
