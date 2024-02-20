@@ -4,6 +4,12 @@ export type User = {
   email: string;
 };
 
+export interface Auth0User {
+  name: string;
+  nickname: string;
+  picture: string;
+}
+
 export type Event = {
   id: string;
   title: string;
@@ -30,3 +36,8 @@ export type EventForm = {
   registered_users: string[];
   speakers: { name: string; rol: string }[];
 };
+
+export type Speaker ={
+  name: string;
+  rol:string;
+}[];
