@@ -1,16 +1,13 @@
 "use client";
-import { getSession } from "@auth0/nextjs-auth0";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import { Auth0User } from "../lib/definitions";
 
-export interface User {
-  name: string;
-  picture: string;
-}
+
 
 type Props = {
-  user: User;
+  user: Auth0User;
 };
 export default function UserButton({ user }: Props) {
   const [menuVisible, setMenuVisible] = useState(false);
