@@ -55,15 +55,7 @@ export async function fetchEvents() {
   try {
     const data = await sql<Event>`
       SELECT 
-        id,
-        title,
-        description,
-        date,
-        time,
-        place,
-        organizer,
-        category,
-        image
+        *
       FROM events 
       ORDER BY title ASC
     `;
