@@ -1,8 +1,8 @@
-import { EventWithId } from "@components/app/store/events/slice";
+import { Event } from "@components/app/lib/definitions";
 import { sql } from "@vercel/postgres";
-import { NextResponse } from "next/server";
+import { NextRequest,NextResponse } from "next/server";
 
-export async function POST(request: NextResponse) {
+export async function POST(request:NextRequest) {
   const body = await request.json();
   try {
     const {
@@ -16,15 +16,15 @@ export async function POST(request: NextResponse) {
       image,
       speakers,
     } = body;
-    const data = await sql<EventWithId>`
+    const data = await sql<Event>`
       INSERT INTO events (title, description, category, place, date, time, organizer, image)
       VALUES (${title}, ${description}, ${category},${place}, ${date}, ${time}, ${organizer} , ${image}) 
       ON CONFLICT (id) DO NOTHING`;
 
     const eventCreated = data.rows;
-    console.log("🚀 ~ POST ~ eventCreated:", eventCreated)
-    const id = eventCreated[0].id;
-    console.log("🚀 ~ POST ~ id:", id)
+    // console.log("🚀 ~ POST ~ eventCreated:", eventCreated)
+    // const id = eventCreated[0].id;
+    // console.log("🚀 ~ POST ~ id:", id)
 
     // if (speakers && speakers.length > 0) {
     //   await Promise.all(
