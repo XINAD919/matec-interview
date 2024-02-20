@@ -10,7 +10,7 @@
 ```sh
 yarn install
 ```
-crear un archivo .env o .env.local y poner las variables de entrorno de Auth0, Vercel/postgres, y unsplash
+crear un archivo .env o .env.local como esta en el archivo example.env.local y poner tus variables de entrorno de Auth0, Vercel/postgres, y unsplash
 
 ```sh
 yarn seed
