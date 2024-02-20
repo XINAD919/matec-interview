@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
+import { Toaster } from "react-hot-toast";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -25,8 +26,9 @@ export default function RootLayout({
   return (
     <html lang='es'>
       <UserProvider>
-        <body className={`${roboto.className}`}>
+        <body className={`${roboto.className} bg-slate-950`}>
           <Header />
+          <Toaster position='bottom-center' reverseOrder={false} />
           {children}
           <Footer />
         </body>
