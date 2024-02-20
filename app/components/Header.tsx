@@ -1,10 +1,11 @@
+"use client";
 import Link from "next/link";
 import UserButton from "./UserButton";
-import { getSession } from "@auth0/nextjs-auth0";
 import { Auth0User } from "../lib/definitions";
+import { useUser } from "@auth0/nextjs-auth0/client";
 
-async function Header() {
-  const { user } = (await getSession()) as { user: Auth0User };
+function Header() {
+  const { user } = useUser() as { user: Auth0User };
 
   return (
     <div className='flex justify-between items-center min-h-16 bg-slate-950 text-white border-b border-slate-800 shadow-md px-8'>
@@ -18,7 +19,6 @@ async function Header() {
         <Link href={"../events"}>Events</Link>
         {user && (
           <>
-            <Link href={"../events"}>My events</Link>
             <Link href={"../events/create-event"}>Create an Event</Link>
           </>
         )}
